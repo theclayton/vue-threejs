@@ -8,7 +8,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 export default {
-  name: 'HelloWorld',
   data () {
     return {
       container: null,
@@ -28,14 +27,14 @@ export default {
       const fov = 60 // Field of view
       const aspect = this.container.clientWidth / this.container.clientHeight
       const near = 0.1 // the near clipping plane
-      const far = 30 // the far clipping plane
+      const far = 300 // the far clipping plane
       const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
-      camera.position.set(0, 5, 10)
+      camera.position.set(0, 0, 10)
       this.camera = camera
 
       // create scene
       this.scene = new THREE.Scene()
-      this.scene.background = new THREE.Color('skyblue')
+      this.scene.background = new THREE.Color(0x333333)
 
       // add lights
       const ambientLight = new THREE.HemisphereLight(
@@ -43,7 +42,7 @@ export default {
         0x222222, // dim ground color
         1 // intensity
       )
-      const mainLight = new THREE.DirectionalLight(0xffffff, 4.0)
+      const mainLight = new THREE.DirectionalLight(0xffffff, 3.0)
       mainLight.position.set(10, 10, 10)
       this.scene.add(ambientLight, mainLight)
 
